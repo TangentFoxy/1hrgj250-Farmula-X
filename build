@@ -1,0 +1,9 @@
+#!/bin/bash
+
+moonc ./src
+./lp-build.sh
+source ./lp-config.sh
+
+butler push "$outputDir/$packageName-${version}_win32.zip" tangentfox/farmula-x:win32 --userversion ${version}
+butler push "$outputDir/$packageName-${version}_osx.zip" tangentfox/farmula-x:osx --userversion ${version}
+butler push "$outputDir/$packageName-${version}_linux.zip" tangentfox/farmula-x:linux --userversion ${version}
